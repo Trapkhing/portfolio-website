@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal portfolio of Evans Kumi, Web Developer & Designer">
+    <meta name="author" content="Evans Kumi">
+    <title>About Me - Evans Kumi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer">
+    <link rel="preload" href="profile.jpg" as="image">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="darkModeToggle" class="toggle-btn">🌙 Dark</button>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="profile-photo-container">
+                <img src="profile.jpg" loading="lazy" alt="Profile Photo of Evans Kumi" class="profile-photo" id="profileImage">
+                <div class="image-loading-spinner hidden"></div>
+            </div>  
+            <h1>Evans Kumi</h1>
+            <p class="tagline">Web Developer & Designer</p>
+        </header>
+
+        <div id="imageModal" class="modal">
+            <span class="close-modal">&times;</span>
+            <div class="modal-loading-spinner"></div>
+            <img class="modal-image" id="expandedImage" alt="Expanded profile photo">
+        </div>
+
+        <!-- About Section -->
+        <section class="section">
+            <article>
+                <h2>About Me</h2>
+                <p>Hi! I'm Evans. I'm a web developer passionate about creating clean, user-friendly websites. I love turning ideas into code and design (with the help of AI).</p>
+            </article>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section">
+            <h2>Skills</h2>
+            <div class="skill" data-skill="design">
+                <p>Design</p>
+                <div class="skill-bar"><span class="skill-level design"></span></div>
+            </div>
+            <div class="skill" data-skill="coding">
+                <p>Coding</p>
+                <div class="skill-bar"><span class="skill-level coding"></span></div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section">
+            <h2>Contact</h2>
+
+            <form id="contactForm" action="https://formspree.io/f/mjkyaywb" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required minlength="2" maxlength="50">
+                    <span class="validation-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+                    <span class="validation-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" required minlength="10" maxlength="500"></textarea>
+                    <span class="validation-error"></span>
+                </div>
+                <div class="form-footer">
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Send Message</span>
+                        <div class="spinner hidden"></div>
+                    </button>
+                    <p class="form-status"></p>
+                </div>
+            </form>
+
+            <div class="social-buttons">
+                <button id="instagramButton" class="social-button instagram-btn" data-platform="Instagram">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </button>
+                <button id="twitterButton" class="social-button twitter-btn" data-platform="Twitter">
+                    <i class="fab fa-x-twitter"></i>
+                    <span>Twitter</span>
+                </button>
+                <button id="emailButton" class="social-button email-btn" data-platform="Gmail">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </button>
+            </div>
+
+            <p>Email: kumievans466@gmail.com</p>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
