@@ -454,9 +454,9 @@ h1, h2, h3, p, .tagline {
 
 }
 
-.skill-level.design { width: 80%; }
-.skill-level.frontend { width: 70%; }
-.skill-level.backend { width: 50%; }
+.skill-level.design { width: 40%; }
+.skill-level.frontend { width: 80%; }
+.skill-level.backend { width: 65%; }
 
 .skill {
     opacity: 0;
