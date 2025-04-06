@@ -450,17 +450,17 @@ h1, h2, h3, p, .tagline {
 
 .skill-level{
     width:0;
-    transition: 1s ease 0.3s;
+    transition: 2.0s ease 0.5s;
 
 }
 
-.skill-level.design { width: 40%; }
-.skill-level.frontend { width: 80%; }
-.skill-level.backend { width: 65%; }
+.skill-level.design { width: 0%; }
+.skill-level.frontend { width: 0%; }
+.skill-level.backend { width: 0%; }
 
 .skill {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
     transition: all 0.6s ease;
 }
 

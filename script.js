@@ -239,9 +239,9 @@ function animateSkills() {
                     // Set the final width based on skill type
                     let width;
                     switch(entry.target.dataset.skill) {
-                        case 'design': width = '80%'; break;
-                        case 'frontend': width = '70%'; break;
-                        case 'backend': width = '50%'; break;
+                        case 'design': width = '40%'; break;
+                        case 'frontend': width = '80%'; break;
+                        case 'backend': width = '60%'; break;
                         default: width = '50%';
                     }
                     
