@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Evans Kumi</title>
-    <!-- Include all the same stylesheets as index.html -->
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -28,19 +27,55 @@
                 <div class="contact-info">
                     <h2>Contact Information</h2>
                     <p><i class="fas fa-envelope"></i> kumievans466@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +123 456 7890</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+                    <p><i class="fas fa-phone"></i> +233 503825112</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Tema, Ghana</p>
                 </div>
 
-                <!-- Move your existing form here -->
-                <form id="contactForm" action="https://formspree.io/f/mjkyaywb" method="POST">
-                    <!-- Keep your existing form fields -->
+        
+                    <section class="section">
+                        <h2>Contact</h2>
+                    <form id="contactForm" action="https://formspree.io/f/mjkyaywb" method="POST">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required minlength="2" maxlength="50">
+                                <span class="validation-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+                                <span class="validation-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="4" required minlength="10" maxlength="500"></textarea>
+                                <span class="validation-error"></span>
+                            </div>
+                            <div class="form-footer">
+                                <button type="submit" class="submit-btn">
+                                    <span class="btn-text">Send Message</span>
+                                    <div class="spinner hidden"></div>
+                                </button>
+                                <p class="form-status"></p>
+                            </div>
+                        </form>
                 </form>
             </div>
 
             <div class="social-buttons">
-                <!-- Keep your existing social buttons -->
+                <button id="instagramButton" class="social-button instagram-btn" data-platform="Instagram">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </button>
+                <button id="twitterButton" class="social-button twitter-btn" data-platform="Twitter">
+                    <i class="fab fa-x-twitter"></i>
+                    <span>Twitter</span>
+                </button>
+                <button id="emailButton" class="social-button email-btn" data-platform="Gmail">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </button>
             </div>
+
         </section>
     </div>
 
