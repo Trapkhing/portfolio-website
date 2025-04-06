@@ -401,3 +401,83 @@ h1, h2, h3, p, .tagline {
     .social-buttons { flex-direction: column; }
     .social-button { width: 100%; }
 }
+
+
+/* Add these new styles to your existing CSS */
+
+/* Navigation */
+.main-nav {
+    background: var(--section-bg);
+    padding: 1rem;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 2rem;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color var(--transition-time) ease;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+}
+
+.main-nav a:hover {
+    color: var(--accent-color);
+}
+
+.main-nav a.active {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* About Page Specific */
+.skills-container {
+    margin-top: 2rem;
+}
+
+/* Contact Page Specific */
+.contact-methods {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 250px;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info i {
+    width: 20px;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-methods {
+        flex-direction: column;
+    }
+    
+    .main-nav ul {
+        gap: 1rem;
+    }
+}

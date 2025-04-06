@@ -1,3 +1,19 @@
+// Add this to your existing script.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Highlight current page in navigation
+    const currentPage = location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.main-nav a');
+    
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+    });
+    
+    // Rest of your existing code...
+});
+
+
 // DOM Elements
 const darkModeToggle = document.getElementById('darkModeToggle');
 const body = document.body;
