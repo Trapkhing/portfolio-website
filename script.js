@@ -1,17 +1,10 @@
-// Add this to your existing script.js
-document.addEventListener('DOMContentLoaded', function() {
-    // Highlight current page in navigation
+document.addEventListener('DOMContentLoaded'), function() {}
+    // Navigation highlighting
     const currentPage = location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.main-nav a');
-    
-    navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
-            link.classList.add('active');
-        }
+    document.querySelectorAll('.main-nav a').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === currentPage);
     });
-    
-    // Rest of your existing code...
-});
+
 
 
 // DOM Elements
@@ -223,20 +216,31 @@ function initModal() {
     });
 }
 
-// Animate Skills on Scroll
-function animateSkillsOnScroll() {
+// Replace all skill animation functions with this single version:
+function animateSkills() {
     const skills = document.querySelectorAll('.skill');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                
+                // Get the skill level element
                 const skillLevel = entry.target.querySelector('.skill-level');
                 if (skillLevel) {
-                    const width = entry.target.dataset.skill === 'design' ? '80%' : '20%';
+                    // Set the final width based on skill type
+                    let width;
+                    switch(entry.target.dataset.skill) {
+                        case 'design': width = '80%'; break;
+                        case 'frontend': width = '70%'; break;
+                        case 'backend': width = '50%'; break;
+                        default: width = '50%';
+                    }
+                    
+                    // Delay the width animation slightly
                     setTimeout(() => {
                         skillLevel.style.width = width;
-                    }, 200);
+                    }, 300);
                 }
             }
         });
@@ -246,19 +250,6 @@ function animateSkillsOnScroll() {
         observer.observe(skill);
     });
 }
-
-// Add to script.js
-function animateSkills() {
-    const skills = document.querySelectorAll('.skill');
-    skills.forEach((skill, index) => {
-        setTimeout(() => {
-            skill.classList.add('visible');
-        }, 200 * index);
-    });
-}
-
-// Call this when page loads
-animateSkills();
 
 
 // Check Font Awesome Load
