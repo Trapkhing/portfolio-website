@@ -247,6 +247,20 @@ function animateSkillsOnScroll() {
     });
 }
 
+// Add to script.js
+function animateSkills() {
+    const skills = document.querySelectorAll('.skill');
+    skills.forEach((skill, index) => {
+        setTimeout(() => {
+            skill.classList.add('visible');
+        }, 200 * index);
+    });
+}
+
+// Call this when page loads
+animateSkills();
+
+
 // Check Font Awesome Load
 function checkFontAwesome() {
     const testIcon = document.createElement('i');
