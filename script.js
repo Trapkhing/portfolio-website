@@ -1,10 +1,18 @@
-document.addEventListener('DOMContentLoaded'), function() {}
-    // Navigation highlighting
+// Add this to your existing script.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Highlight current page in navigation
     const currentPage = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.main-nav a').forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === currentPage);
+    const navLinks = document.querySelectorAll('.main-nav a');
+    
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
     });
-
+    animateSkills();
+    initModal();
+    checkFontAwesome();
+});
 
 
 // DOM Elements
