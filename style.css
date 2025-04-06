@@ -447,6 +447,13 @@ h1, h2, h3, p, .tagline {
     margin-top: 2rem;
 }
 
+
+.skill-level{
+    width:0;
+    transition: 1s ease 0.3s;
+
+}
+
 .skill-level.design { width: 80%; }
 .skill-level.frontend { width: 70%; }
 .skill-level.backend { width: 50%; }
