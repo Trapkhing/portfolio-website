@@ -165,54 +165,53 @@ document.getElementById('contactForm').addEventListener('submit', async function
 });
 
 
+  
 function initModal() {
     const profileImage = document.getElementById('profileImage');
     const modal = document.getElementById('imageModal');
     const expandedImage = document.getElementById('expandedImage');
     const closeModal = document.querySelector('.close-modal');
-    const modalSpinner = document.querySelector('.modal-loading-spinner');
 
     if (!profileImage || !modal || !expandedImage || !closeModal) {
-        console.error('One or more modal elements are missing');
+        console.error('Modal elements missing');
         return;
     }
 
-    
     profileImage.addEventListener('click', function() {
-        modal.style.display = "block";
-        modalSpinner.style.display = 'block';
+        modal.style.display = 'block';
         expandedImage.classList.remove('loaded');
         
-    
+        // Create new image to ensure clean load
         const img = new Image();
         img.src = this.src;
+        
         img.onload = () => {
             expandedImage.src = this.src;
             expandedImage.classList.add('loaded');
-            modalSpinner.style.display = 'none';
-        };
-        img.onerror = () => {
-            modalSpinner.style.display = 'none';
-            console.error('Failed to load image');
         };
         
-        document.body.style.overflow = 'hidden';
+        img.onerror = () => {
+            console.error('Failed to load image');
+            modal.style.display = 'none';
+        };
     });
 
-
-    closeModal.addEventListener('click', function() {
-        modal.style.display = "none";
-        document.body.style.overflow = 'auto';
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
     });
 
-
-    modal.addEventListener('click', function(event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
-            document.body.style.overflow = 'auto';
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
         }
     });
 
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            modal.style.display = 'none';
+        }
+    });
+}
 
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape' && modal.style.display === 'block') {
@@ -220,7 +219,7 @@ function initModal() {
             document.body.style.overflow = 'auto';
         }
     });
-}
+
 
 
 function animateSkills() {
