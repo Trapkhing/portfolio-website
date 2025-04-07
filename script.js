@@ -1,6 +1,6 @@
-// Add this to your existing script.js
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Highlight current page in navigation
+    
     const currentPage = location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.main-nav a');
     
@@ -15,21 +15,19 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// DOM Elements
 const darkModeToggle = document.getElementById('darkModeToggle');
 const body = document.body;
 
-// Theme Detection
+
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 const currentTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
 
-// Apply Initial Theme
 if (currentTheme === 'dark') {
     body.setAttribute('data-theme', 'dark');
     darkModeToggle.textContent = '☀️ Light';
 }
 
-// Theme Toggle
+
 darkModeToggle.addEventListener('click', () => {
     if (body.getAttribute('data-theme') === 'dark') {
         body.removeAttribute('data-theme');
@@ -42,7 +40,7 @@ darkModeToggle.addEventListener('click', () => {
     }
 });
 
-// Social Media Configuration
+
 const socialLinks = {
     instagram: {
         buttonId: 'instagramButton',
@@ -63,7 +61,7 @@ const socialLinks = {
     }
 };
 
-// Initialize Social Buttons
+
 Object.values(socialLinks).forEach(({ buttonId, url, action }) => {
     const button = document.getElementById(buttonId);
     if (button) {
@@ -77,22 +75,22 @@ Object.values(socialLinks).forEach(({ buttonId, url, action }) => {
     }
 });
 
-// Form Validation
+
 function validateForm() {
     let isValid = true;
     const form = document.getElementById('contactForm');
     
-    // Validate Name
+    
     const nameInput = form.querySelector('#name');
     const nameError = nameInput.nextElementSibling;
-    if (nameInput.value.length < 2) {
-        nameError.textContent = 'Name must be at least 2 characters';
+    if (nameInput.value.length < 3) {
+        nameError.textContent = 'Name must be at least 3 characters';
         isValid = false;
     } else {
         nameError.textContent = '';
     }
     
-    // Validate Email
+    
     const emailInput = form.querySelector('#email');
     const emailError = emailInput.nextElementSibling;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -103,7 +101,7 @@ function validateForm() {
         emailError.textContent = '';
     }
     
-    // Validate Message
+    
     const messageInput = form.querySelector('#message');
     const messageError = messageInput.nextElementSibling;
     if (messageInput.value.length < 10) {
@@ -116,7 +114,7 @@ function validateForm() {
     return isValid;
 }
 
-// Form Submission with Loading State
+
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     
@@ -127,7 +125,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
     const spinner = form.querySelector('.spinner');
     const statusEl = form.querySelector('.form-status');
     
-    // Show loading state
+
     submitBtn.disabled = true;
     submitBtn.querySelector('.btn-text').classList.add('hidden');
     spinner.classList.remove('hidden');
@@ -153,12 +151,12 @@ document.getElementById('contactForm').addEventListener('submit', async function
         statusEl.classList.add('form-error');
         console.error('Form submission error:', error);
     } finally {
-        // Reset UI
+        
         submitBtn.disabled = false;
         submitBtn.querySelector('.btn-text').classList.remove('hidden');
         spinner.classList.add('hidden');
         
-        // Clear status after 5s
+        
         setTimeout(() => {
             statusEl.textContent = '';
             statusEl.classList.remove('form-error');
@@ -166,7 +164,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
     }
 });
 
-// Initialize Modal
+
 function initModal() {
     const profileImage = document.getElementById('profileImage');
     const modal = document.getElementById('imageModal');
@@ -179,13 +177,13 @@ function initModal() {
         return;
     }
 
-    // Click handler for profile image
+    
     profileImage.addEventListener('click', function() {
         modal.style.display = "block";
         modalSpinner.style.display = 'block';
         expandedImage.classList.remove('loaded');
         
-        // Load image in the background
+    
         const img = new Image();
         img.src = this.src;
         img.onload = () => {
@@ -201,13 +199,13 @@ function initModal() {
         document.body.style.overflow = 'hidden';
     });
 
-    // Close modal when X is clicked
+
     closeModal.addEventListener('click', function() {
         modal.style.display = "none";
         document.body.style.overflow = 'auto';
     });
 
-    // Close modal when clicking outside image
+
     modal.addEventListener('click', function(event) {
         if (event.target === modal) {
             modal.style.display = "none";
@@ -215,7 +213,7 @@ function initModal() {
         }
     });
 
-    // Close with ESC key
+
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape' && modal.style.display === 'block') {
             modal.style.display = "none";
@@ -224,7 +222,7 @@ function initModal() {
     });
 }
 
-// Replace all skill animation functions with this single version:
+
 function animateSkills() {
     const skills = document.querySelectorAll('.skill');
     
@@ -233,10 +231,10 @@ function animateSkills() {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
                 
-                // Get the skill level element
+                
                 const skillLevel = entry.target.querySelector('.skill-level');
                 if (skillLevel) {
-                    // Set the final width based on skill type
+
                     let width;
                     switch(entry.target.dataset.skill) {
                         case 'design': width = '40%'; break;
@@ -245,7 +243,7 @@ function animateSkills() {
                         default: width = '50%';
                     }
                     
-                    // Delay the width animation slightly
+
                     setTimeout(() => {
                         skillLevel.style.width = width;
                     }, 300);
@@ -260,7 +258,7 @@ function animateSkills() {
 }
 
 
-// Check Font Awesome Load
+
 function checkFontAwesome() {
     const testIcon = document.createElement('i');
     testIcon.className = 'fa fa-check';
